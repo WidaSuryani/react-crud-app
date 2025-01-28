@@ -1,0 +1,19 @@
+{
+  "posts": [
+    {
+      "title": "Second Post Edited",
+      "content": "This is my second post! (Edited)",
+      "id": "2"
+    },
+    {
+      "id": "7762",
+      "title": "test",
+      "content": "haloo"
+    },
+    {
+      "id": "565a",
+      "title": "Test",
+      "content": "Halooooo"
+    }
+  ]
+}
