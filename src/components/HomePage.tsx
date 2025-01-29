@@ -5,23 +5,23 @@ interface Post {
   id: number;
   title: string;
   content: string;
-}
+} // to define the type of the data that we are going to use.
 
 const HomePage = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const navigate = useNavigate();
+  const [posts, setPosts] = useState<Post[]>([]); // useState is using to manage form inputs and local state.
+  const navigate = useNavigate(); // useNavigate is using to direct to another page.
 
   useEffect(() => {
     fetch("http://localhost:3001/posts")
       .then((response) => response.json())
       .then((data) => setPosts(data));
-  }, []);
+  }, []); // useEffect is using to fetch data from the server.
 
   const handleDelete = (id: number) => {
     fetch(`http://localhost:3001/posts/${id}`, {
       method: "DELETE",
     }).then(() => setPosts(posts.filter((post) => post.id !== id)));
-  };
+  }; // handleDelete is using to delete the post.
 
   return (
     <div className="min-h-screen flex bg-gradient-to-r from-[#8eaad4] to-[#ddb2bc] px-2">
@@ -43,7 +43,7 @@ const HomePage = () => {
               </button>
               <button
                 className="ml-2 px-4 py-2 bg-red-300 flex items-center rounded hover:bg-red-400 "
-                onClick={() => handleDelete(post.id)}
+                onClick={() => handleDelete(post.id)} // example of using handleDelete function.
               >
                 Delete <span className="i-mdi-delete" />
               </button>
@@ -52,7 +52,7 @@ const HomePage = () => {
         ))}
       </div>
       <button
-        onClick={() => navigate("/create")}
+        onClick={() => navigate("/create")} // example of using navigate to direct to another page.
         className="fixed bottom-4 right-4 bg-blue-300 px-4 py-2 flex items-center rounded hover:bg-blue-400 "
       >
         Create Post <span className="i-mdi-add-box" />
