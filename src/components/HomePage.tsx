@@ -26,23 +26,23 @@ const HomePage = () => {
   return (
     <div className="min-h-screen flex bg-gradient-to-r from-[#8eaad4] to-[#ddb2bc] px-2">
       <div>
-        <h1 className="text-2xl font-bold py-2 text-center block">Post Page</h1>
+        <h1 className="text-2xl font-bold py-2 text-center">Post Page</h1>
         {posts.map((post) => (
           <div
             key={post.id}
-            className="border border-white rounded-lg px-2 py-2 my-2 shadow-xl"
+            className="rounded-lg px-2 py-2 my-2 drop-shadow-md bg-rose-100 w-full"
           >
             <h2 className="font-bold text-xl">{post.title}</h2>
             <p>{post.content}</p>
             <div className="flex py-2">
               <button
                 onClick={() => navigate("/edit/" + post.id)}
-                className="px-4 py-2 bg-amber-200 flex items-center rounded hover:bg-amber-300 "
+                className="px-4 py-2 bg-amber-300 flex items-center rounded hover:bg-amber-400 "
               >
                 Edit <span className="i-mdi-file-edit" />
               </button>
               <button
-                className="ml-2 px-4 py-2 bg-red-200 flex items-center rounded hover:bg-red-400 "
+                className="ml-2 px-4 py-2 bg-red-300 flex items-center rounded hover:bg-red-400 "
                 onClick={() => handleDelete(post.id)}
               >
                 Delete <span className="i-mdi-delete" />
@@ -53,7 +53,7 @@ const HomePage = () => {
       </div>
       <button
         onClick={() => navigate("/create")}
-        className="fixed bottom-4 right-4 bg-blue-200 px-4 py-2 flex items-center rounded hover:bg-blue-400 "
+        className="fixed bottom-4 right-4 bg-blue-300 px-4 py-2 flex items-center rounded hover:bg-blue-400 "
       >
         Create Post <span className="i-mdi-add-box" />
       </button>
