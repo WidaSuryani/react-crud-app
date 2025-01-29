@@ -12,15 +12,18 @@ const HomePage = () => {
   const navigate = useNavigate(); // useNavigate is using to direct to another page.
 
   useEffect(() => {
-    fetch("http://localhost:3001/posts")
-      .then((response) => response.json())
-      .then((data) => setPosts(data));
+    fetch("http://localhost:3001/posts") // fetch is using to get data from the server.
+      .then((response) => response.json()) // response.json is using to convert the response to json.
+      .then((data) => setPosts(data)); // setPosts is using to set the data to the state.
   }, []); // useEffect is using to fetch data from the server.
 
   const handleDelete = (id: number) => {
-    fetch(`http://localhost:3001/posts/${id}`, {
-      method: "DELETE",
-    }).then(() => setPosts(posts.filter((post) => post.id !== id)));
+    fetch(
+      `http://localhost:3001/posts/${id}`, // fetch is using to get data from the server, base from the id.
+      {
+        method: "DELETE", // method is using to define the type of the request.
+      }
+    ).then(() => setPosts(posts.filter((post) => post.id !== id))); // setPosts is using to set the data to the state.
   }; // handleDelete is using to delete the post.
 
   return (
