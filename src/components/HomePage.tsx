@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface Post {
   id: number;
@@ -8,6 +9,7 @@ interface Post {
 
 const HomePage = () => {
   const [posts, setPosts] = useState<Post[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:3001/posts")
@@ -33,7 +35,10 @@ const HomePage = () => {
             <h2 className="font-bold text-xl">{post.title}</h2>
             <p>{post.content}</p>
             <div className="flex py-2">
-              <button className="px-4 py-2 bg-amber-200 flex items-center rounded hover:bg-amber-300 ">
+              <button
+                onClick={() => navigate("/edit/" + post.id)}
+                className="px-4 py-2 bg-amber-200 flex items-center rounded hover:bg-amber-300 "
+              >
                 Edit <span className="i-mdi-file-edit" />
               </button>
               <button
@@ -46,7 +51,10 @@ const HomePage = () => {
           </div>
         ))}
       </div>
-      <button className="fixed bottom-4 right-4 bg-blue-200 px-4 py-2 flex items-center rounded hover:bg-blue-400 ">
+      <button
+        onClick={() => navigate("/create")}
+        className="fixed bottom-4 right-4 bg-blue-200 px-4 py-2 flex items-center rounded hover:bg-blue-400 "
+      >
         Create Post <span className="i-mdi-add-box" />
       </button>
     </div>
