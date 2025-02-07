@@ -16,7 +16,7 @@ const CreatePage = () => {
   };
 
   return (
-    <div className="p-4 min-h-screen bg-gradient-to-r from-[#ddb2bc] to-[#8eaad4]  px-2">
+    <div className="p-4 min-h-screen bg-gradient-to-r from-[#ddb2bc] to-[#8eaad4] px-2">
       <h1 className="text-2xl font-bold">Create Post</h1>
       <form onSubmit={handleSubmit}>
         <label className="block my-2">Title</label>
